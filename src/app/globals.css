@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════
+   CHRONO TRIGGER DESIGN SYSTEM — CSS THEME
+   ═══════════════════════════════════════════════ */
+
+@theme inline {
+  /* Core palette */
+  --color-void: #0a0a1a;
+  --color-void-light: #12122a;
+  --color-void-lighter: #1a1a3a;
+
+  --color-amber: #f59e0b;
+  --color-amber-light: #fbbf24;
+  --color-amber-dark: #d97706;
+
+  --color-gold: #eab308;
+  --color-gold-light: #facc15;
+
+  --color-teal: #14b8a6;
+  --color-teal-light: #2dd4bf;
+  --color-teal-dark: #0d9488;
+
+  --color-portal: #06b6d4;
+  --color-portal-light: #22d3ee;
+
+  --color-chrono-purple: #8b5cf6;
+  --color-chrono-purple-light: #a78bfa;
+
+  --color-crimson: #ef4444;
+  --color-parchment: #fef3c7;
+  --color-parchment-dark: #fde68a;
+
+  --color-text-primary: #e8e6e3;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #6b7280;
+
+  /* Fonts */
+  --font-heading: 'Cinzel', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Animations */
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-portal-spin: portal-spin 8s linear infinite;
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+  --animate-typewriter-cursor: typewriter-cursor 0.8s step-end infinite;
+  --animate-pixel-flicker: pixel-flicker 4s ease-in-out infinite;
+  --animate-slide-up: slide-up 0.6s ease-out;
+  --animate-fade-in: fade-in 0.8s ease-out;
+}
+
+/* ═══════════════════════════════════════════════
+   KEYFRAMES
+   ═══════════════════════════════════════════════ */
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    filter: brightness(1) drop-shadow(0 0 4px currentColor);
+  }
+
+  50% {
+    filter: brightness(1.3) drop-shadow(0 0 12px currentColor);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes portal-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes typewriter-cursor {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: var(--color-amber);
+  }
+}
+
+@keyframes pixel-flicker {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes star-drift {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes npc-bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-teal);
+  color: var(--color-void);
+}
+
+/* ═══════════════════════════════════════════════
+   PIXEL BORDER UTILITIES
+   ═══════════════════════════════════════════════ */
+
+.pixel-border {
+  border: 2px solid var(--color-amber-dark);
+  box-shadow:
+    inset 0 0 0 1px var(--color-void),
+    inset 0 0 0 2px var(--color-amber),
+    0 0 0 1px var(--color-void),
+    0 0 0 2px var(--color-amber-dark),
+    0 0 16px rgba(245, 158, 11, 0.1);
+  background: linear-gradient(180deg, var(--color-void-light), var(--color-void));
+}
+
+.pixel-border-teal {
+  border: 2px solid var(--color-teal-dark);
+  box-shadow:
+    inset 0 0 0 1px var(--color-void),
+    inset 0 0 0 2px var(--color-teal),
+    0 0 0 1px var(--color-void),
+    0 0 0 2px var(--color-teal-dark),
+    0 0 16px rgba(20, 184, 166, 0.1);
+  background: linear-gradient(180deg, var(--color-void-light), var(--color-void));
+}
+
+.pixel-border-purple {
+  border: 2px solid #6d28d9;
+  box-shadow:
+    inset 0 0 0 1px var(--color-void),
+    inset 0 0 0 2px var(--color-chrono-purple),
+    0 0 0 1px var(--color-void),
+    0 0 0 2px #6d28d9,
+    0 0 16px rgba(139, 92, 246, 0.1);
+  background: linear-gradient(180deg, var(--color-void-light), var(--color-void));
+}
+
+/* ═══════════════════════════════════════════════
+   PIXEL DIVIDER
+   ═══════════════════════════════════════════════ */
+
+.pixel-divider {
+  height: 2px;
+  background: repeating-linear-gradient(90deg,
+      var(--color-amber-dark) 0px,
+      var(--color-amber-dark) 4px,
+      transparent 4px,
+      transparent 8px);
+  opacity: 0.5;
+}
+
+.pixel-divider-teal {
+  height: 2px;
+  background: repeating-linear-gradient(90deg,
+      var(--color-teal-dark) 0px,
+      var(--color-teal-dark) 4px,
+      transparent 4px,
+      transparent 8px);
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-amber-dark);
+  border: 1px solid var(--color-void-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-amber);
+}
+
+/* ═══════════════════════════════════════════════
+   GLOW UTILITIES
+   ═══════════════════════════════════════════════ */
+
+.glow-amber {
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.3), 0 0 24px rgba(245, 158, 11, 0.1);
+}
+
+.glow-teal {
+  box-shadow: 0 0 12px rgba(20, 184, 166, 0.3), 0 0 24px rgba(20, 184, 166, 0.1);
+}
+
+.glow-purple {
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.3), 0 0 24px rgba(139, 92, 246, 0.1);
+}
+
+.text-glow-amber {
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.5), 0 0 16px rgba(245, 158, 11, 0.2);
+}
+
+.text-glow-teal {
+  text-shadow: 0 0 8px rgba(20, 184, 166, 0.5), 0 0 16px rgba(20, 184, 166, 0.2);
+}
